@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="description" content="Soumyajit Manna is a MERN-stack engineer building and deploying secure, real-world applications." />
+    <meta property="og:title" content="Soumyajit Manna — Full Stack Web Developer" />
+    <meta name="theme-color" content="#050b09" />
+    <title>Soumyajit Manna — Full Stack Web Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500..700&family=JetBrains+Mono:wght@400;500&family=Syne:wght@400..800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <div class="preloader" id="preloader" aria-hidden="true">
+      <div class="shutter shutter-top"></div>
+      <div class="shutter shutter-bottom"></div>
+      <div class="boot-log" id="boot-log"></div>
+    </div>
+
+    <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+    <div class="cursor-mark" id="cursor-mark" aria-hidden="true"><i></i><b></b></div>
+    <div class="cursor-tag" id="cursor-tag" aria-hidden="true">x 0000 · y 0000</div>
+
+    <header class="topbar">
+      <a class="brand" href="#hero" aria-label="Soumyajit Manna, home">Soumyajit</a>
+      <time id="local-time" aria-label="Current time in Haldia, India">Haldia, IN — --:-- IST</time>
+    </header>
+
+    <nav class="dock" aria-label="Section navigation">
+      <a href="#about" data-section="about">About</a>
+      <a href="#work" data-section="work">Work</a>
+      <a href="#stack" data-section="stack">Stack</a>
+      <a href="#path" data-section="path">Path</a>
+      <a href="#resume" data-section="resume">Resume</a>
+      <a href="#contact" data-section="contact">Say hi</a>
+    </nav>
+
+    <main id="main-content">
+      <section class="hero" id="hero" aria-labelledby="hero-title">
+        <div class="hero-sun" aria-hidden="true"></div>
+        <div class="hero-grid" aria-hidden="true"></div>
+        <div class="hero-inner">
+          <p class="eyebrow hero-eyebrow f">
+            <span class="availability-dot" aria-hidden="true"></span>
+            Available for work <span class="slash">/</span> Full Stack Web Developer
+          </p>
+          <h1 class="hero-title" id="hero-title" aria-label="Soumyajit Manna">
+            <span class="name-line m" aria-hidden="true"><b><span class="letter">S</span><span class="letter">o</span><span class="letter">u</span><span class="letter">m</span><span class="letter">y</span><span class="letter">a</span><span class="letter">j</span><span class="letter">i</span><span class="letter">t</span></b></span>
+            <span class="name-line name-accent m" aria-hidden="true"><b><span class="letter">M</span><span class="letter">a</span><span class="letter">n</span><span class="letter">n</span><span class="letter">a</span></b></span>
+          </h1>
+          <div class="hero-lower">
+            <div class="hero-copy">
+              <p class="hero-subtitle f">MERN-stack engineer building and deploying secure, real-world applications.</p>
+              <a class="scroll-cue f" href="#about">Scroll to explore <span aria-hidden="true">↓</span></a>
+            </div>
+            <img class="hero-avatar" src="assets/home-panda-avatar.png" alt="Panda developer working at a laptop surrounded by coding icons" width="960" height="768" />
+          </div>
+        </div>
+      </section>
+
+      <section class="about section-pad" id="about" aria-labelledby="about-title">
+        <div class="about-grid">
+          <div class="section-aside">
+            <p class="section-label"><span>01</span> / About</p>
+            <h2 class="section-title" id="about-title">Code that<br />ships.</h2>
+            <img class="about-avatar" src="assets/about-panda-avatar.png" alt="Chibi panda developer mascot in a hoodie" width="768" height="840" loading="lazy" decoding="async" />
+          </div>
+          <div class="about-content">
+            <p class="about-copy" id="about-copy" aria-label="Highly motivated Full Stack Web Developer specializing in the MERN stack (MongoDB, Express.js, React and Node.js) with hands-on experience in building and deploying secure, real-world applications.">
+              <span class="word">Highly</span> <span class="word">motivated</span> <span class="word">Full</span> <span class="word">Stack</span> <span class="word">Web</span> <span class="word">Developer</span> <span class="word">specializing</span> <span class="word">in</span> <span class="word">the</span> <span class="word">MERN</span> <span class="word">stack</span> <span class="word">(MongoDB,</span> <span class="word">Express.js,</span> <span class="word">React</span> <span class="word">and</span> <span class="word">Node.js)</span> <span class="word">with</span> <span class="word">hands-on</span> <span class="word">experience</span> <span class="word">in</span> <span class="word">building</span> <span class="word">and</span> <span class="word">deploying</span> <span class="word">secure,</span> <span class="word">real-world</span> <span class="word">applications.</span>
+            </p>
+            <dl class="facts">
+              <div><dt>Base</dt><dd>Haldia, West Bengal, India</dd></div>
+              <div><dt>Focus</dt><dd>MERN stack</dd></div>
+              <div><dt>Degree</dt><dd>B.Tech CSE, Haldia Institute of Technology</dd></div>
+              <div><dt>Shipped</dt><dd>5+ live platforms</dd></div>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <section class="work section-pad" id="work" aria-labelledby="work-title">
+        <div class="work-heading">
+          <p class="section-label"><span>02</span> / Selected work</p>
+          <h2 class="section-title" id="work-title">Live builds</h2>
+        </div>
+        <div class="project-stack">
+          <article class="project-card" style="--i:0; --stack-offset:0px; --project-accent:#4de1c1" data-project>
+            <div class="project-info">
+              <span class="project-number" aria-hidden="true">01</span>
+              <p class="project-type">Doctor appointment booking system</p>
+              <h3>Prescripto</h3>
+              <p class="project-description">Built a full-stack appointment booking platform for patients, doctors, and admins.</p>
+              <div class="project-details">
+                <div>
+                  <p class="project-detail-label">Key features</p>
+                  <ul class="project-highlights">
+                    <li>Doctor, patient, and admin dashboards</li>
+                    <li>Appointment scheduling and payment verification</li>
+                    <li>AI-powered suggestions and email notifications</li>
+                  </ul>
+                </div>
+                <div>
+                  <p class="project-detail-label">Tech stack</p>
+                  <ul class="project-tech-list" aria-label="Prescripto technologies">
+                    <li>React.js</li><li>Node.js</li><li>Express.js</li><li>MongoDB</li>
+                    <li>Razorpay</li><li>JWT</li><li>Nodemailer</li><li>Tailwind CSS</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="project-actions">
+                <a class="project-button mag" href="https://prescripto-frontend-two.vercel.app" target="_blank" rel="noopener noreferrer">Visit site <span aria-hidden="true">↗</span></a>
+                <a class="project-button mag" href="https://github.com/soumyajit-manna/Doctor-Appointment-Booking-System" target="_blank" rel="noopener noreferrer">Source code <span aria-hidden="true">↗</span></a>
+              </div>
+            </div>
+            <div class="project-visual" data-tilt aria-label="Prescripto video preview">
+              <div class="browser-frame project-video-frame">
+                <div class="browser-bar"><span></span><span></span><span></span><small>prescripto / preview</small></div>
+                <video class="project-video" controls muted loop playsinline preload="metadata" aria-label="Prescripto sample video">
+                  <source src="assets/Prescripto_video.mp4" type="video/mp4" />
+                </video>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card" style="--i:1; --stack-offset:18px; --project-accent:#ffb86b" data-project>
+            <div class="project-info">
+              <span class="project-number" aria-hidden="true">02</span>
+              <p class="project-type">Fashion eCommerce platform</p>
+              <h3>FOREVER</h3>
+              <p class="project-description">Built a responsive fashion storefront with customer and admin flows.</p>
+              <div class="project-details">
+                <div>
+                  <p class="project-detail-label">Key features</p>
+                  <ul class="project-highlights">
+                    <li>Product listings and JWT-based authentication</li>
+                    <li>Admin APIs for product management</li>
+                    <li>Razorpay and Stripe payments with email notifications</li>
+                  </ul>
+                </div>
+                <div>
+                  <p class="project-detail-label">Tech stack</p>
+                  <ul class="project-tech-list" aria-label="FOREVER technologies">
+                    <li>React.js</li><li>Node.js</li><li>Express.js</li><li>MongoDB</li>
+                    <li>Stripe</li><li>Razorpay</li><li>JWT</li><li>Nodemailer</li><li>Tailwind CSS</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="project-actions">
+                <a class="project-button mag" href="https://forever-frontend-five-ecru.vercel.app" target="_blank" rel="noopener noreferrer">Visit site <span aria-hidden="true">↗</span></a>
+                <a class="project-button mag" href="https://github.com/soumyajit-manna/Forever" target="_blank" rel="noopener noreferrer">Source code <span aria-hidden="true">↗</span></a>
+              </div>
+            </div>
+            <div class="project-visual" data-tilt aria-label="FOREVER video preview">
+              <div class="browser-frame project-video-frame">
+                <div class="browser-bar"><span></span><span></span><span></span><small>FOREVER / preview</small></div>
+                <video class="project-video" controls muted loop playsinline preload="metadata" aria-label="FOREVER sample video">
+                  <source src="assets/Forever_video.mp4" type="video/mp4" />
+                </video>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card" style="--i:2; --stack-offset:36px; --project-accent:#ff6b5e" data-project>
+            <div class="project-info">
+              <span class="project-number" aria-hidden="true">03</span>
+              <p class="project-type">Food delivery platform</p>
+              <h3>Tomato</h3>
+              <p class="project-description">Built a full-stack food delivery platform with customer ordering and admin tools.</p>
+              <div class="project-details">
+                <div>
+                  <p class="project-detail-label">Key features</p>
+                  <ul class="project-highlights">
+                    <li>Real-time cart and order tracking</li>
+                    <li>Admin dashboard for order and inventory management</li>
+                    <li>Stripe payments and email automation</li>
+                  </ul>
+                </div>
+                <div>
+                  <p class="project-detail-label">Tech stack</p>
+                  <ul class="project-tech-list" aria-label="Tomato technologies">
+                    <li>React.js</li><li>Node.js</li><li>Express.js</li><li>MongoDB</li>
+                    <li>Stripe</li><li>Nodemailer</li><li>CSS</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="project-actions">
+                <a class="project-button mag" href="https://tomato-frontend-ppm5.onrender.com" target="_blank" rel="noopener noreferrer">Visit site <span aria-hidden="true">↗</span></a>
+                <a class="project-button mag" href="https://github.com/soumyajit-manna/Tomato-Full-Stack-Food-Delivery-Platform" target="_blank" rel="noopener noreferrer">Source code <span aria-hidden="true">↗</span></a>
+              </div>
+            </div>
+            <div class="project-visual" data-tilt aria-label="Tomato video preview">
+              <div class="browser-frame project-video-frame">
+                <div class="browser-bar"><span></span><span></span><span></span><small>Tomato / preview</small></div>
+                <video class="project-video" controls muted loop playsinline preload="metadata" aria-label="Tomato sample video">
+                  <source src="assets/Tomato_video.mp4" type="video/mp4" />
+                </video>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card" style="--i:3; --stack-offset:54px; --project-accent:#8de6ff" data-project>
+            <div class="project-info">
+              <span class="project-number" aria-hidden="true">04</span>
+              <p class="project-type">Local shop showcase</p>
+              <h3>Tech &amp; Kit</h3>
+              <p class="project-description">Built a showcase site for a local electronics shop, making its products and offerings easy to explore.</p>
+              <div class="project-details">
+                <div>
+                  <p class="project-detail-label">Key features</p>
+                  <ul class="project-highlights">
+                    <li>Electronics and components catalog</li>
+                    <li>Custom LED signage options</li>
+                    <li>Project ideas and showcases</li>
+                  </ul>
+                </div>
+                <div>
+                  <p class="project-detail-label">Tech stack</p>
+                  <ul class="project-tech-list" aria-label="Tech &amp; Kit technologies">
+                    <li>HTML</li><li>CSS</li><li>JavaScript</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="project-actions">
+                <a class="project-button mag" href="https://tech-and-kit.vercel.app" target="_blank" rel="noopener noreferrer">Visit site <span aria-hidden="true">↗</span></a>
+                <a class="project-button mag" href="https://github.com/soumyajit-manna/tech-and-kit.git" target="_blank" rel="noopener noreferrer">Source code <span aria-hidden="true">↗</span></a>
+              </div>
+            </div>
+            <div class="project-visual" data-tilt aria-label="Tech &amp; Kit visual preview">
+              <div class="browser-frame project-image-frame">
+                <div class="browser-bar"><span></span><span></span><span></span><small>Tech &amp; Kit</small></div>
+                <img class="project-image" src="assets/tech-and-kit-project.png" alt="Tech &amp; Kit electronics shop showcase with components and kits" loading="lazy" decoding="async" />
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="stack section-pad" id="stack" aria-labelledby="stack-title">
+        <p class="section-label"><span>03</span> / Stack</p>
+        <h2 class="section-title" id="stack-title">Tools of the trade.</h2>
+        <div class="stack-grid">
+          <article class="stack-cell">
+            <h3>Frontend</h3>
+            <ul class="stack-skills" aria-label="Frontend technologies">
+              <li class="skill-chip"><img src="https://cdn.simpleicons.org/react/61DAFB" alt="" aria-hidden="true" loading="lazy" decoding="async" width="18" height="18" /><span>React.js</span></li>
+              <li class="skill-chip"><img src="https://cdn.simpleicons.org/html5/E34F26" alt="" aria-hidden="true" loading="lazy" decoding="async" width="18" height="18" /><span>HTML</span></li>
+              <li class="skill-chip"><img src="https://cdn.simpleicons.org/css/1572B6" alt="" aria-hidden="true" loading="lazy" decoding="async" width="18" height="18" /><span>CSS</span></li>
+              <li class="skill-chip"><img src="https://cdn.simpleicons.org/tailwindcss/06B6D4" alt="" aria-hidden="true" loading="lazy" decoding="async" width="18" height="18" /><span>Tailwind CSS</span></li>
+              <li class="skill-chip"><img src="https://cdn.simpleicons.org/bootstrap/7952B3" alt="" aria-hidden="true" loading="lazy" decoding="async" width="18" height="18" /><span>Bootstrap</span></li>
+            </ul>
+          </article>
+          <article class="stack-cell">
+            <h3>Backend</h3>
+            <ul class="stack-skills" aria-label="Backend technologies">
+              <li class="skill-chip"><img src="https://cdn.simpleicons.org/nodedotjs/5FA04E" alt="" aria-hidden="true" loading="lazy" decoding="async" width="18" height="18" /><span>Node.js</span></li>
+              <li class="skill-chip"><img src="https://cdn.simpleicons.org/express/E9EFE6" alt="" aria-hidden="true" loading="lazy" decoding="async" width="18" height="18" /><span>Express.js</span></li>
+              <li class="skill-chip"><span class="skill-mark" aria-hidden="true">API</span><span>REST APIs</span></li>
+              <li class="skill-chip"><span class="skill-mark" aria-hidden="true">JWT</span><span>JWT</span></li>
+              <li class="skill-chip"><img src="https://cdn.simpleicons.org/razorpay/0C2451" alt="" aria-hidden="true" loading="lazy" decoding="async" width="18" height="18" /><span>Razorpay</span></li>
+              <li class="skill-chip"><img src="https://cdn.simpleicons.org/stripe/635BFF" alt="" aria-hidden="true" loading="lazy" decoding="async" width="18" height="18" /><span>Stripe</span></li>
+              <li class="skill-chip"><span class="skill-mark" aria-hidden="true">@</span><span>Nodemailer</span></li>
+            </ul>
+          </article>
+          <article class="stack-cell">
+            <h3>Database</h3>
+            <ul class="stack-skills" aria-label="Database technologies">
+              <li class="skill-chip"><img src="https://cdn.simpleicons.org/mongodb/47A248" alt="" aria-hidden="true" loading="lazy" decoding="async" width="18" height="18" /><span>MongoDB</span></li>
+              <li class="skill-chip"><span class="skill-mark" aria-hidden="true">DB</span><span>SQL</span></li>
+            </ul>
+          </article>
+          <article class="stack-cell">
+            <h3>Programming Languages</h3>
+            <ul class="stack-skills" aria-label="Programming languages">
+              <li class="skill-chip"><span class="skill-mark skill-mark-java" aria-hidden="true">J</span><span>Java</span></li>
+              <li class="skill-chip"><img src="https://cdn.simpleicons.org/javascript/F7DF1E" alt="" aria-hidden="true" loading="lazy" decoding="async" width="18" height="18" /><span>JavaScript</span></li>
+            </ul>
+          </article>
+          <article class="stack-cell stack-cell-wide">
+            <h3>Tools &amp; Platforms</h3>
+            <ul class="stack-skills" aria-label="Tools and platforms">
+              <li class="skill-chip"><img src="https://cdn.simpleicons.org/git/F05032" alt="" aria-hidden="true" loading="lazy" decoding="async" width="18" height="18" /><span>Git</span></li>
+              <li class="skill-chip"><img src="https://cdn.simpleicons.org/github/E9EFE6" alt="" aria-hidden="true" loading="lazy" decoding="async" width="18" height="18" /><span>GitHub</span></li>
+              <li class="skill-chip"><img src="https://cdn.simpleicons.org/cloudinary/3448C5" alt="" aria-hidden="true" loading="lazy" decoding="async" width="18" height="18" /><span>Cloudinary</span></li>
+              <li class="skill-chip"><img src="https://cdn.simpleicons.org/vercel/E9EFE6" alt="" aria-hidden="true" loading="lazy" decoding="async" width="18" height="18" /><span>Vercel</span></li>
+              <li class="skill-chip"><img src="https://cdn.simpleicons.org/render/46E3B7" alt="" aria-hidden="true" loading="lazy" decoding="async" width="18" height="18" /><span>Render</span></li>
+              <li class="skill-chip"><img src="https://cdn.simpleicons.org/postman/FF6C37" alt="" aria-hidden="true" loading="lazy" decoding="async" width="18" height="18" /><span>Postman</span></li>
+              <li class="skill-chip"><span class="skill-mark" aria-hidden="true">TC</span><span>Thunder Client</span></li>
+              <li class="skill-chip"><img src="https://cdn.simpleicons.org/hoppscotch/FF6C37" alt="" aria-hidden="true" loading="lazy" decoding="async" width="18" height="18" /><span>Hoppscotch</span></li>
+              <li class="skill-chip"><img src="https://cdn.simpleicons.org/clerk/6C47FF" alt="" aria-hidden="true" loading="lazy" decoding="async" width="18" height="18" /><span>Clerk</span></li>
+            </ul>
+          </article>
+          <article class="stack-cell stack-cell-wide"><h3>Relevant Coursework</h3><p>Data Structures &amp; Algorithms, DBMS, Operating Systems, Computer Networks</p></article>
+        </div>
+      </section>
+
+      <section class="path section-pad" id="path" aria-labelledby="path-title">
+        <div class="path-heading">
+          <p class="section-label"><span>04</span> / Path</p>
+          <h2 class="section-title" id="path-title">Learning, logged.</h2>
+        </div>
+        <div class="timeline" id="timeline">
+          <div class="timeline-track" aria-hidden="true"><span id="timeline-fill"></span></div>
+          <article class="timeline-entry">
+            <span class="timeline-date">Sep 2022 → Jul 2026</span>
+            <div><h3>B.Tech, Computer Science &amp; Engineering</h3><p>Haldia Institute of Technology, West Bengal · 7.10/10 CGPA</p></div>
+          </article>
+          <article class="timeline-entry">
+            <span class="timeline-date">4–6 April 2025 · 36 hours · In-person</span>
+            <div>
+              <h3>HackByte 3.0 — IITDM Jabalpur</h3>
+              <p>Enhanced Prescripto with AI-driven suggestions, secure payments, and email automation; collaborated with a 4-member team to deliver production-ready applications.</p>
+              <p><a href="https://pseudo-coder-c1zi.vercel.app/" target="_blank" rel="noopener noreferrer">Live demo ↗</a> · <a href="https://drive.google.com/file/d/1lLGoKd5TmURp-SHtxY4EiwbHQMEeF1hm/view" target="_blank" rel="noopener noreferrer">Certificate ↗</a></p>
+            </div>
+          </article>
+          <div class="timeline-lower">
+            <div class="timeline-lower-entries">
+              <article class="timeline-entry">
+                <span class="timeline-date">Mar 2024 – Aug 2024</span>
+                <div><h3>Full Stack Web Development</h3><p>Apna College · <a href="https://drive.google.com/file/d/18bOfA4I23JpxDoqfAScBajiY2hJ0mCan/view?usp=drivesdk" target="_blank" rel="noopener noreferrer">View certificate ↗</a></p></div>
+              </article>
+              <article class="timeline-entry">
+                <span class="timeline-date">Apr 2023 – Sep 2023</span>
+                <div><h3>Data Structures &amp; Algorithms with Java</h3><p>Apna College · <a href="https://drive.google.com/file/d/1Moc_e5yWN7-ON6vvN-6D6RJgEf4fttM5/view?usp=drivesdk" target="_blank" rel="noopener noreferrer">View certificate ↗</a></p></div>
+              </article>
+              <article class="timeline-entry">
+                <span class="timeline-date">Jan 2020 → Jan 2022</span>
+                <div><h3>Higher Secondary (XII)</h3><p>Chakdwipa High School (WBCHSE), Haldia · 92.6%</p></div>
+              </article>
+            </div>
+            <img class="timeline-panda" src="assets/learning-panda.png" alt="Panda mascot pointing toward the education and experience entries" width="1152" height="768" loading="lazy" decoding="async" />
+          </div>
+        </div>
+      </section>
+
+      <section class="resume-section section-pad" id="resume" aria-labelledby="resume-title">
+        <div class="resume-inner">
+          <div class="resume-content">
+            <p class="section-label"><span>05</span> / Resume</p>
+            <h2 class="section-title" id="resume-title">My work,<br />on paper.</h2>
+            <p class="resume-description">View or download my resume for a full overview of my experience, skills, and projects.</p>
+            <div class="resume-actions">
+              <a class="resume-button resume-button-primary mag" href="assets/Soumyajit_Manna_Full_Stack_Developer_Resume.pdf" target="_blank" rel="noopener noreferrer">View resume <span aria-hidden="true">↗</span></a>
+              <a class="resume-button" id="resume-download" href="assets/Soumyajit_Manna_Full_Stack_Developer_Resume.pdf" download="Soumyajit_Manna_Full_Stack_Developer_Resume.pdf">Download PDF <span aria-hidden="true">↓</span></a>
+            </div>
+            <p class="resume-download-status" id="resume-download-status" role="status" aria-live="polite" hidden></p>
+          </div>
+          <div class="resume-visual" aria-hidden="true">
+            <div class="resume-sheet">
+              <div class="resume-sheet-head"><strong>SM</strong><span>RESUME · PDF</span></div>
+              <div class="resume-sheet-rule"></div>
+              <div class="resume-sheet-section"></div>
+              <div class="resume-sheet-lines">
+                <i></i><i></i><i></i>
+              </div>
+              <div class="resume-sheet-section"></div>
+              <div class="resume-sheet-columns"><i></i><i></i></div>
+              <div class="resume-sheet-lines">
+                <i></i><i></i><i></i><i></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact" id="contact" aria-labelledby="contact-title">
+        <div class="contact-inner">
+          <p class="section-label"><span>06</span> / Contact</p>
+          <h2 id="contact-title" class="contact-title">Let's build<br />together.</h2>
+          <div class="contact-actions">
+            <div class="contact-links">
+              <a class="contact-button mag" href="https://github.com/soumyajit-manna" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+              <a class="contact-button mag" href="https://linkedin.com/in/soumyajitmanna" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+              <a class="contact-button mag" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=mannasoumyajit47%40gmail.com" target="_blank" rel="noopener noreferrer" aria-label="Compose an email to Soumyajit Manna in Gmail">Email <span aria-hidden="true">✉</span></a>
+            </div>
+            <img class="contact-panda" src="assets/contact-panda.png" alt="Panda mascot holding a phone, ready to talk" width="840" height="768" loading="lazy" decoding="async" />
+          </div>
+          <footer class="footer-row">
+            <span>© 2026 Soumyajit Manna</span>
+            <span>Haldia, West Bengal, India</span>
+          </footer>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
