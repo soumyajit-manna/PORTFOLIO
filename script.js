@@ -68,12 +68,13 @@ async function finishBoot() {
   preloader.remove();
 }
 
+let bootPromise = Promise.resolve();
 if (reduceMotion) {
   body.classList.add("is-ready");
   preloader.remove();
 } else {
   body.classList.add("is-booting");
-  finishBoot();
+  bootPromise = finishBoot();
 }
 
 const clockFormatter = new Intl.DateTimeFormat("en-GB", {
@@ -105,6 +106,88 @@ document.querySelectorAll(".m, .f").forEach((element, index) => {
   element.style.setProperty("--t", `${Math.min(index % 5, 4) * 70}ms`);
   if (reduceMotion || !revealObserver) element.classList.add("in");
   else revealObserver.observe(element);
+});
+
+const stackGrid = document.querySelector(".stack-grid");
+if (stackGrid) {
+  const skillGroups = [...stackGrid.querySelectorAll(".stack-cell")]
+    .map((cell) => [...cell.querySelectorAll(".stack-skills .skill-chip")])
+    .filter((group) => group.length > 0);
+  const dealOrder = [];
+  const maxGroupLength = Math.max(...skillGroups.map((group) => group.length), 0);
+  for (let index = 0; index < maxGroupLength; index += 1) {
+    skillGroups.forEach((group) => {
+      if (group[index]) dealOrder.push(group[index]);
+    });
+  }
+
+  if (reduceMotion || !revealObserver) {
+    stackGrid.classList.add("in");
+  } else {
+    dealOrder.forEach((chip, index) => {
+      chip.style.setProperty("--deal-delay", `${index * 110}ms`);
+      chip.style.setProperty("--deal-order", String(index + 1));
+
+      const clearDealDelay = (event) => {
+        if (event.target !== chip || event.propertyName !== "opacity") return;
+        chip.style.setProperty("--deal-delay", "0ms");
+        chip.removeEventListener("transitionend", clearDealDelay);
+      };
+      chip.addEventListener("transitionend", clearDealDelay);
+    });
+
+    const prepareStackDeck = () => {
+      if (stackGrid.classList.contains("in")) return;
+
+      stackGrid.classList.add("is-measuring");
+      const gridBounds = stackGrid.getBoundingClientRect();
+      const deckCenterX = gridBounds.left + gridBounds.width / 2;
+      const deckCenterY = gridBounds.top + gridBounds.height / 2;
+
+      dealOrder.forEach((chip, index) => {
+        const bounds = chip.getBoundingClientRect();
+        const pileDepth = index - (dealOrder.length - 1) / 2;
+        const pileOffsetX = pileDepth * 1.1;
+        const pileOffsetY = pileDepth * 1.8;
+        const pileRotation = ((index % 7) - 3) * 1.2;
+        chip.style.setProperty("--deal-x", `${deckCenterX - bounds.left - bounds.width / 2 + pileOffsetX}px`);
+        chip.style.setProperty("--deal-y", `${deckCenterY - bounds.top - bounds.height / 2 + pileOffsetY}px`);
+        chip.style.setProperty("--deal-rotate", `${pileRotation}deg`);
+      });
+
+      stackGrid.classList.remove("is-measuring");
+      stackGrid.classList.add("is-stacked");
+    };
+
+    prepareStackDeck();
+    if (document.fonts?.ready) document.fonts.ready.then(prepareStackDeck);
+
+    let stackResizeTimer = 0;
+    window.addEventListener("resize", () => {
+      if (stackGrid.classList.contains("in")) return;
+      window.clearTimeout(stackResizeTimer);
+      stackResizeTimer = window.setTimeout(prepareStackDeck, 120);
+    }, { passive: true });
+
+    const lastChip = dealOrder[dealOrder.length - 1];
+    if (lastChip) {
+      const finishDeal = (event) => {
+        if (event.target !== lastChip || event.propertyName !== "transform") return;
+        stackGrid.classList.remove("is-stacked");
+        lastChip.removeEventListener("transitionend", finishDeal);
+      };
+      lastChip.addEventListener("transitionend", finishDeal);
+    }
+
+    bootPromise.then(() => {
+      window.setTimeout(() => revealObserver.observe(stackGrid), 180);
+    });
+  }
+}
+
+const sectionTitles = [...document.querySelectorAll(".section-title")];
+document.querySelectorAll(".hero-title .letter").forEach((letter, index) => {
+  letter.style.setProperty("--letter-delay", `${index * 45}ms`);
 });
 
 const navLinks = [...document.querySelectorAll(".dock a[data-section]")];
@@ -205,6 +288,17 @@ function updateScrollEffects() {
   const scrollable = document.documentElement.scrollHeight - window.innerHeight;
   progressBar.style.transform = `scaleX(${scrollable > 0 ? window.scrollY / scrollable : 0})`;
 
+  sectionTitles.forEach((title) => {
+    if (reduceMotion) {
+      title.style.setProperty("--section-title-x", "0px");
+      return;
+    }
+    const section = title.closest("section");
+    const rect = section.getBoundingClientRect();
+    const progress = clamp((window.innerHeight - rect.top) / window.innerHeight, 0, 1);
+    title.style.setProperty("--section-title-x", `${(1 - progress) * -80}px`);
+  });
+
   const aboutRect = aboutSection.getBoundingClientRect();
   const aboutProgress = clamp(
     (window.innerHeight * .78 - aboutRect.top) / (aboutRect.height + window.innerHeight * .25),
@@ -243,8 +337,7 @@ function updateScrollEffects() {
       return;
     }
     const nextTop = nextCard.getBoundingClientRect().top;
-    const stickyTop = window.innerWidth <= 760 ? 72 : 84;
-    const progress = clamp((window.innerHeight * .84 - nextTop) / (window.innerHeight * .84 - stickyTop), 0, 1);
+    const progress = clamp(1 - (nextTop - 90) / window.innerHeight, 0, 1);
     card.style.setProperty("--card-scale", String(1 - progress * .07));
     card.style.setProperty("--card-opacity", String(1 - progress * .45));
   });
