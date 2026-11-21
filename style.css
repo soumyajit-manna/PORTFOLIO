@@ -863,18 +863,26 @@ body.is-ready .hero-title .letter {
   .topbar time { display: none; }
   .dock { width: calc(100% - 32px); justify-content: space-between; gap: 2px; padding: 6px; }
   .dock a { min-width: 0; flex: 1; padding: 12px 6px; font-size: 9px; letter-spacing: .03em; }
+  .project-stack { padding-bottom: calc(4vh + 90px); }
+  .project-stack::after { display: block; height: 30svh; content: ""; }
   .about-grid { grid-template-columns: 1fr; gap: 38px; }
   .section-aside { position: static; }
   .section-title { font-size: clamp(42px, 10vw, 66px); }
   .hero-lower { grid-template-columns: minmax(0, 1fr) minmax(160px, 250px); gap: 16px; }
   .hero-avatar { position: relative; top: auto; right: auto; width: 100%; max-width: 320px; justify-self: end; }
   .project-card {
-    top: calc(72px + var(--stack-offset, 0px));
+    position: sticky;
+    top: 78px;
+    z-index: calc(10 + var(--i));
     min-height: 0;
     grid-template-columns: 1fr;
     gap: 28px;
     margin-bottom: 9vh;
     padding: 24px;
+    transform: translate3d(var(--card-x, 0px), 0, 0) scale(var(--card-scale, 1));
+    opacity: var(--card-opacity, 1);
+    transform-origin: center top;
+    will-change: transform, opacity;
   }
   .project-visual { order: -1; min-height: 250px; }
   .browser-frame { height: min(270px, 60vw); min-height: 205px; }
@@ -898,9 +906,20 @@ body.is-ready .hero-title .letter {
   .hero-title { font-size: clamp(2.7rem, 12.6vw, 13rem); }
   .hero-lower { grid-template-columns: 1fr; gap: 8px; }
   .hero-avatar { width: min(100%, 300px); max-width: 300px; justify-self: center; margin-top: 8px; }
-  .project-card { padding: 19px; border-radius: 14px; }
-  .project-visual { min-height: 215px; }
-  .browser-frame { width: 88%; }
+  .project-card { gap: 16px; padding: 14px; border-radius: 14px; }
+  .project-number { margin-bottom: 10px; font-size: clamp(48px, 12vw, 64px); }
+  .project-type { margin-bottom: 8px; font-size: 9px; }
+  .project-info h3 { font-size: clamp(30px, 9vw, 44px); }
+  .project-description { margin: 10px 0 12px; font-size: 13px; line-height: 1.55; }
+  .project-details { gap: 10px; margin-bottom: 14px; }
+  .project-detail-label { margin-bottom: 6px; font-size: 8px; }
+  .project-highlights { gap: 3px; font-size: 10px; line-height: 1.4; }
+  .project-tech-list { gap: 4px; }
+  .project-tech-list li { padding: 4px 6px; font-size: 8px; }
+  .project-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .project-button { min-width: 0; min-height: 40px; gap: 8px; padding: 0 8px; font-size: 9px; letter-spacing: .02em; }
+  .project-visual { min-height: 160px; }
+  .browser-frame { width: 88%; height: min(185px, 52vw); min-height: 145px; }
   .facts > div { grid-template-columns: 90px 1fr; gap: 12px; }
   .facts dt, .facts dd { font-size: 10px; }
   .contact-title { font-size: clamp(3rem, 14.5vw, 15rem); }
