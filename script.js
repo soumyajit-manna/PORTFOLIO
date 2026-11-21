@@ -1,6 +1,7 @@
 // Boot sequence and shared browser state.
 const root = document.documentElement;
 const body = document.body;
+const themeToggle = document.querySelector("#theme-toggle");
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 const preloader = document.querySelector("#preloader");
@@ -8,6 +9,7 @@ const bootLog = document.querySelector("#boot-log");
 const cursorMark = document.querySelector("#cursor-mark");
 const cursorTag = document.querySelector("#cursor-tag");
 const clock = document.querySelector("#local-time");
+const themePreferenceKey = "portfolio-theme";
 const bootLines = [
   "> soumyajit.dev --boot",
   "> loading stack: mongo · express · react · node",
@@ -17,6 +19,33 @@ const bootLines = [
 
 const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
 const wait = (time) => new Promise((resolve) => window.setTimeout(resolve, time));
+
+function setTheme(theme) {
+  const isLight = theme === "light";
+  root.dataset.theme = theme;
+  themeToggle.setAttribute("aria-label", `Switch to ${isLight ? "dark" : "light"} mode`);
+  themeToggle.setAttribute("aria-pressed", String(isLight));
+  themeToggle.querySelector(".theme-toggle-icon").textContent = isLight ? "☾" : "☼";
+  themeToggle.querySelector(".theme-toggle-label").textContent = isLight ? "DARK" : "LIGHT";
+}
+
+let initialTheme = "dark";
+try {
+  if (window.localStorage.getItem(themePreferenceKey) === "light") initialTheme = "light";
+} catch (error) {
+  console.error("Could not read the saved theme preference:", error);
+}
+setTheme(initialTheme);
+
+themeToggle.addEventListener("click", () => {
+  const nextTheme = root.dataset.theme === "light" ? "dark" : "light";
+  setTheme(nextTheme);
+  try {
+    window.localStorage.setItem(themePreferenceKey, nextTheme);
+  } catch (error) {
+    console.error("Could not save the theme preference:", error);
+  }
+});
 
 async function typeBootLine(text) {
   const line = document.createElement("div");
