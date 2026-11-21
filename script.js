@@ -348,7 +348,7 @@ function updateScrollEffects() {
         scrollProgress = stickyTop + cardRect.height + stackPaddingBottom + stackSpacer - projectStack.getBoundingClientRect().bottom;
       }
       const progress = clamp(
-        scrollProgress / Math.max(window.innerHeight * .3, 1),
+        scrollProgress / Math.max(window.innerHeight * .2, 1),
         0,
         1,
       );
