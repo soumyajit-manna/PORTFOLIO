@@ -864,8 +864,11 @@ body.is-ready .hero-title .letter {
   .topbar time { display: none; }
   .dock { width: calc(100% - 32px); justify-content: space-between; gap: 2px; padding: 6px; }
   .dock a { min-width: 0; flex: 1; padding: 12px 6px; font-size: 9px; letter-spacing: .03em; }
-  .work { isolation: isolate; }
-  .stack { background: var(--bg); }
+  .work {
+    isolation: isolate;
+    padding-bottom: calc(clamp(90px, 13vw, 180px) + max(200px, 28svh));
+  }
+  .stack { position: relative; z-index: 1; background: var(--bg); }
   .project-stack { padding-bottom: calc(4vh + 90px); }
   .project-stack::after { display: block; height: 30svh; content: ""; }
   .about-grid { grid-template-columns: 1fr; gap: 38px; }
@@ -886,6 +889,11 @@ body.is-ready .hero-title .letter {
     opacity: var(--card-opacity, 1);
     transform-origin: center top;
     will-change: transform, opacity;
+  }
+  .project-card:last-child {
+    min-height: 630px;
+    align-content: start;
+    margin-bottom: -390px;
   }
   .project-visual { order: -1; min-height: 250px; }
   .browser-frame { height: min(270px, 60vw); min-height: 205px; }
