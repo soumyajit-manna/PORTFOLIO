@@ -212,6 +212,7 @@ const timeline = document.querySelector("#timeline");
 const timelineFill = document.querySelector("#timeline-fill");
 const timelineEntries = [...document.querySelectorAll(".timeline-entry")];
 const projectCards = [...document.querySelectorAll("[data-project]")];
+const projectStack = document.querySelector(".project-stack");
 const projectVideos = [...document.querySelectorAll(".project-video")];
 const contactSection = document.querySelector("#contact");
 const contactTitle = document.querySelector("#contact-title");
@@ -324,8 +325,39 @@ function updateScrollEffects() {
     });
   }
 
+  const mobileProjectCards = window.matchMedia("(max-width: 760px)").matches;
   projectCards.forEach((card, index) => {
     const nextCard = projectCards[index + 1];
+    if (mobileProjectCards) {
+      card.style.setProperty("--card-scale", "1");
+      card.style.setProperty("--card-opacity", "1");
+      if (reduceMotion) {
+        card.style.setProperty("--card-x", "0px");
+        return;
+      }
+      const cardRect = card.getBoundingClientRect();
+      const stickyTop = 78;
+      let scrollProgress;
+      if (nextCard) {
+        const marginBottom = Number.parseFloat(getComputedStyle(card).marginBottom) || 0;
+        const nextTop = nextCard.getBoundingClientRect().top;
+        scrollProgress = cardRect.height + marginBottom - (nextTop - stickyTop);
+      } else {
+        const stackPaddingBottom = Number.parseFloat(getComputedStyle(projectStack).paddingBottom) || 0;
+        const stackSpacer = Number.parseFloat(getComputedStyle(projectStack, "::after").height) || 0;
+        scrollProgress = stickyTop + cardRect.height + stackPaddingBottom + stackSpacer - projectStack.getBoundingClientRect().bottom;
+      }
+      const progress = clamp(
+        scrollProgress / Math.max(window.innerHeight * .3, 1),
+        0,
+        1,
+      );
+      const distance = window.innerWidth;
+      card.style.setProperty("--card-x", `${(1 - progress) * distance}px`);
+      return;
+    }
+
+    card.style.setProperty("--card-x", "0px");
     if (!nextCard) {
       card.style.setProperty("--card-scale", "1");
       card.style.setProperty("--card-opacity", "1");
