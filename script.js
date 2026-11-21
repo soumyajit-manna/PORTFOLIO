@@ -345,7 +345,8 @@ function updateScrollEffects() {
       } else {
         const stackPaddingBottom = Number.parseFloat(getComputedStyle(projectStack).paddingBottom) || 0;
         const stackSpacer = Number.parseFloat(getComputedStyle(projectStack, "::after").height) || 0;
-        scrollProgress = stickyTop + cardRect.height + stackPaddingBottom + stackSpacer - projectStack.getBoundingClientRect().bottom;
+        const cardMarginBottom = Number.parseFloat(getComputedStyle(card).marginBottom) || 0;
+        scrollProgress = stickyTop + cardRect.height + stackPaddingBottom + stackSpacer + cardMarginBottom - projectStack.getBoundingClientRect().bottom;
       }
       const progress = clamp(
         scrollProgress / Math.max(window.innerHeight * .2, 1),
